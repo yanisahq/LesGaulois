@@ -4,6 +4,7 @@ import personnages.Druide;
 import personnages.Gaulois;
 import personnages.Romain;
 import objets.Chaudron;
+import objets.Equipement;
 
 public class TestGaulois {
     public static void main(String[] args) {
@@ -24,7 +25,6 @@ public class TestGaulois {
             asterix.frapper(minus);
         }
 
-
         Romain brutus = new Romain("Brutus", 14);
         Chaudron chaudron = new Chaudron();
         Druide panoramix = new Druide("Panoramix", 2, chaudron);
@@ -36,5 +36,15 @@ public class TestGaulois {
         for (int i = 0; i < 3; i++) {
             asterix.frapper(brutus);
         }
+ 
+        System.out.println("\nTest énumération");
+        System.out.println(Equipement.CASQUE);
+        System.out.println(Equipement.BOUCLIER);
+ 
+        System.out.println("\nTest équipement");
+        minus.sEquiper(Equipement.CASQUE);
+        minus.sEquiper(Equipement.CASQUE);  
+        minus.sEquiper(Equipement.BOUCLIER);
+        minus.sEquiper(Equipement.CASQUE);
     }
 }
