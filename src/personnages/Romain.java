@@ -1,6 +1,5 @@
 package personnages;
 
-
 public class Romain {
     private String nom;
     private int force;
@@ -8,6 +7,7 @@ public class Romain {
     public Romain(String nom, int force) {
         this.nom = nom;
         this.force = force;
+        assert isInvariantVerified() : "force négative à la création";
     }
 
     public String getNom() {
@@ -23,6 +23,10 @@ public class Romain {
     }
 
     public void recevoirCoup(int forceCoup) {
+        // PRÉCONDITION 
+        assert forceCoup > 0 : "Précondition violée : forceCoup doit être positive";
+        int ancienneForce = force;
+        
         force -= forceCoup;
         if (force > 0) {
             parler("Aïe");
@@ -30,5 +34,13 @@ public class Romain {
             force = 0;
             parler("J'abandonne...");
         }
+        
+        // POSTCONDITION 
+        assert force <= ancienneForce : "Postcondition violée : la force n'a pas diminué";
+        assert isInvariantVerified() : "force négative après recevoirCoup";
+    }
+    
+    private boolean isInvariantVerified() {
+        return force >= 0;
     }
 }
