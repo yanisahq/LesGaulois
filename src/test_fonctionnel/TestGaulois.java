@@ -24,7 +24,7 @@ public class TestGaulois {
             asterix.frapper(minus);
         }
 
-        // 4.5
+
         Romain brutus = new Romain("Brutus", 14);
         Chaudron chaudron = new Chaudron();
         Druide panoramix = new Druide("Panoramix", 2, chaudron);

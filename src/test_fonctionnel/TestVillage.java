@@ -5,66 +5,52 @@ import personnages.Village;
 
 public class TestVillage {
     public static void main(String[] args) {
-        System.out.println("=== TP2 - Le village des Gaulois ===\n");
         
-        // Créer le chef
+        
+        //d.1
         Gaulois abraracourcix = new Gaulois("Abraracourcix", 6);
+        Village village = new Village("Village des Irréductibles", abraracourcix, 30);
         
-        // Créer le village
-        Village village = new Village("Village des Irréductibles", 30, abraracourcix);
-        
-        // Test trouverVillageois(30) - ne doit pas lever d'exception
-        System.out.println("=== Test trouverVillageois(30) ===");
+        //d.2
         Gaulois gaulois = village.trouverVillageois(30);
-        System.out.println("Résultat : " + gaulois + " (aucune exception levée)");
         
-        // Créer et ajouter Astérix
-        System.out.println("\n=== Ajout d'Astérix ===");
+        //d.3
         Gaulois asterix = new Gaulois("Astérix", 8);
         village.ajouterVillageois(asterix);
-        System.out.println("Astérix ajouté au village !");
         
-        // Tests trouverVillageois
-        System.out.println("\n=== Tests trouverVillageois ===");
-        System.out.print("Villageois n°1 : ");
+        //d.4
         gaulois = village.trouverVillageois(1);
         System.out.println(gaulois);
-        
-        System.out.print("Villageois n°2 : ");
+       
         gaulois = village.trouverVillageois(2);
         System.out.println(gaulois);
         
-        // e. Afficher le village
-        System.out.println("\n=== Affichage du village ===");
+        //e
         village.afficherVillage();
         
-        // g. Ajouter Obélix
-        System.out.println("\n=== Ajout d'Obélix ===");
+        //f
+        abraracourcix.sePresenter(); 
+        asterix.sePresenter();      
+
+        // gaulois sans village 
+        Gaulois doublepolemix = new Gaulois("Doublepolémix", 4);
+        doublepolemix.sePresenter(); 
+        
+        //g.1 
         Gaulois obelix = new Gaulois("Obélix", 25);
         village.ajouterVillageois(obelix);
-        System.out.println("Obélix ajouté au village !");
         
-        // Afficher le village mis à jour
-        System.out.println("\n=== Village mis à jour ===");
+        //g.2 
         village.afficherVillage();
         
-        // g. Créer DoublePolémix (sans village)
-        System.out.println("\n=== Création de DoublePolémix (sans village) ===");
-        Gaulois doublePolemix = new Gaulois("DoublePolémix", 4);
-        
-        // Appeler sePresenter sur tous
-        System.out.println("\n=== Présentations des Gaulois ===");
-        System.out.println("1. Le chef :");
+        //g.3 (déjà créé plus haut)
+
+
+        //g.4 
         abraracourcix.sePresenter();
+        asterix.sePresenter(); 
+        doublepolemix.sePresenter();  
+        obelix.sePresenter(); 
         
-        System.out.println("2. Un habitant du village :");
-        asterix.sePresenter();
-        
-        System.out.println("3. Un autre habitant :");
-        obelix.sePresenter();
-        
-        System.out.println("4. Un gaulois sans village :");
-        doublePolemix.sePresenter();
-        
-        System.out.println("\n=== Fin du test ===");
     }
+}
